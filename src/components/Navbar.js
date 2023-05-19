@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from "./../logo.png"
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 function Navbar() {
 
@@ -31,7 +31,10 @@ function Navbar() {
                     </ul>
                 </div>
                 <div className="flex items-center gap-6">
-                    <button className="bg-[#ff2519] text-white px-5 py-2 rounded-full hover:bg-[#87acec]">Sign in</button>
+                    <Link to="/signin">
+                        <button className="bg-[#ff2519] text-white px-5 py-2 rounded-full hover:bg-[#e43030]">Sign in</button>
+                    </Link>
+
                     <button onclick={!setToggle} name="menu" className="text-3xl cursor-pointer lg:hidden">dsfsdf</button>
                 </div>
             </nav>
