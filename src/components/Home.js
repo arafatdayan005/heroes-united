@@ -39,20 +39,6 @@ function Home() {
                     </div>
                 </Carousel>
             </section>
-            {/* About Us Section */}
-            <section className='grid grid-cols-1 lg:grid-cols-2 bg-gray-300 bg-opacity-25'>
-                <div className='bg-circle relative flex justify-center'>
-                    <img className='absolute max-h-[120%] me-6 -top-8' src="https://scroar.net/wp-content/uploads/2021/10/IMG_2832-700x900.png" alt="" />
-                </div>
-                <div className='flex justify-center'>
-                    <div className='my-16 lg:pe-20 text-right'>
-                        <h3 className='text-4xl font-bold tracking-tighter text-blue-600 mb-8'>About Us</h3>
-                        <h1 className='text-5xl font-bold font-serif'>Providing Best Quality & <span className='text-blue-500 text-6xl'>Original</span> Action Figures </h1>
-                        <p className='w-[85%] inline-block my-8 text-lg text-gray-500'>Get all latest action figures from Marvel or DC superheros to add to your collection, or gift it to your closest person, friends or your kids on Cristsmas.We provide up-to-date products all around the world.</p>
-                        <button className='px-8 bg-blue-600 text-white py-4 font-bold rounded-full hover:bg-blue-700'>Contact Us</button>
-                    </div>
-                </div>
-            </section>
             {/* Our Collection Section*/}
             <section className='py-20 bg-blue-500 bg-opacity-20'>
                 <div className="text-center">
@@ -171,6 +157,50 @@ function Home() {
                                 />
                             </Carousel>
                         </div>
+                    </div>
+                </div>
+            </section>
+            {/* Special Deal Section */}
+            <section className='py-20 bg-slate-950 text-white'>
+                <div className='text-center'>
+                    <h3 className='text-4xl font-bold tracking-tighter text-blue-600'>Special Deal</h3>
+                    <h1 className='w-[40%] inline-block text-5xl font-bold font-serif my-8'>Check Our All New Christmas Deals</h1>
+                </div>
+
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
+                    <div className='flex justify-end'>
+                        <img className='max-w-[70%] h-full rounded-xl' src="https://cdn.popcultcha.com.au/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/h/a/hasf3454-future-foundation-spider-man-_stealth-suit_-marvel-legends-6_-scale-action-figure-01.png" alt="" />
+                    </div>
+                    <div>
+                        <div className='max-w-[90%] h-full p-12 shadow-xl rounded-xl'>
+                            <h3 className='text-4xl font-serif font-semibold mb-6'>Over <span className='text-blue-600 text-5xl'>250</span> Figures At Our Store</h3>
+                            <h4 className='text-2xl tracking-tighter font-semibold text-blue-600'>Get 25% Discount</h4>
+                            <h5 className='my-6 text-lg text-gray-500'>Our thai chefs are packed with energy and enthusiasm. Your dinner spread will never look, smell, or better. The recipes are for all seasons perfect for family gatherings and events</h5>
+                            <button className='px-8 bg-blue-600 text-white py-4 font-bold rounded-full hover:bg-blue-700 mt-4'>Buy now</button>
+                        </div>
+                    </div>
+                    <div className='flex justify-end'>
+                        <div className='max-w-[90%] h-full p-12 shadow-xl rounded-xl text-right'>
+                            <h3 className='text-4xl font-serif font-semibold mb-6'>Get <span className='text-red-600 lg:text-5xl'>Update</span>  for any upcoming action figures</h3>
+                            <h4 className='text-2xl tracking-tighter font-semibold text-red-600'>Get 25% Discount</h4>
+                            <h5 className='my-6 text-lg text-gray-500'>Our action figures are packed with energy and enthusiasm. Your figure collection never looked better before. Our products are for all types & perfect for all kind of figure collection.</h5>
+                            <button className='px-8 bg-red-600 text-white py-4 font-bold rounded-full hover:bg-red-700 mt-4'>Buy now</button>
+                        </div>
+                    </div>
+                    <img className='max-w-[70%] h-full rounded-xl' src="https://www.dragon-models.de/out/pictures/master/product/2/1-jpg-608f7d0dec32c.png" alt="" />
+                </div>
+            </section>
+            {/* About Us Section */}
+            <section className='grid grid-cols-1 lg:grid-cols-2 bg-gray-300 bg-opacity-25'>
+                <div className='bg-circle relative flex justify-center'>
+                    <img className='absolute max-h-[120%] me-6 -top-8' src="https://scroar.net/wp-content/uploads/2021/10/IMG_2832-700x900.png" alt="" />
+                </div>
+                <div className='flex justify-center'>
+                    <div className='my-16 lg:pe-20 text-right'>
+                        <h3 className='text-4xl font-bold tracking-tighter text-blue-600 mb-8'>About Us</h3>
+                        <h1 className='text-5xl font-bold font-serif'>Providing Best Quality & <span className='text-blue-500 text-6xl'>Original</span> Action Figures </h1>
+                        <p className='w-[85%] inline-block my-8 text-lg text-gray-500'>Get all latest action figures from Marvel or DC superheros to add to your collection, or gift it to your closest person, friends or your kids on Cristsmas.We provide up-to-date products all around the world.</p>
+                        <button className='px-8 bg-blue-600 text-white py-4 font-bold rounded-full hover:bg-blue-700'>Contact Us</button>
                     </div>
                 </div>
             </section>
