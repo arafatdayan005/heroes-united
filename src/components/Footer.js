@@ -21,7 +21,7 @@ function Footer() {
                         </div>
                         <div className='col-span-1 text-white'>
                             <h3 className='mb-6 font-medium text-xl'>About Us</h3>
-                            <p>Recipies</p>
+                            <p>Toys</p>
                             <p>Work</p>
                             <p>Latest News</p>
                             <p>Career</p>
