@@ -5,7 +5,7 @@ function Home() {
     return (
         <>
             {/* Banner Section */}
-            <div className="h-56 sm:h-64 md:h-96 2xl:h-[90vh] bg-black bg-auto">
+            <section className="h-56 sm:h-64 md:h-96 2xl:h-[90vh] bg-black bg-auto">
                 <Carousel>
                     <div className="flex h-full items-center justify-center">
                         <img src="https://4kwallpapers.com/images/walls/thumbs_3t/4969.jpg" className='h-[90vh] w-full' alt="" />
@@ -38,7 +38,21 @@ function Home() {
                         </div>
                     </div>
                 </Carousel>
-            </div>
+            </section>
+            {/* About Us Section */}
+            <section className='grid grid-cols-1 lg:grid-cols-2 bg-gray-300 bg-opacity-25'>
+                <div className='bg-circle relative flex justify-center'>
+                    <img className='absolute max-h-[120%] me-6 -top-8' src="https://scroar.net/wp-content/uploads/2021/10/IMG_2832-700x900.png" alt="" />
+                </div>
+                <div className='flex justify-center'>
+                    <div className='my-16 lg:pe-20 text-right'>
+                        <h3 className='text-4xl font-bold tracking-tighter text-blue-600 mb-8'>About Us</h3>
+                        <h1 className='text-5xl font-bold font-serif'>Providing Best Quality & <span className='text-blue-500 text-6xl'>Original</span> Action Figures </h1>
+                        <p className='w-[85%] inline-block my-8 text-lg text-gray-500'>Get all latest action figures from Marvel or DC superheros to add to your collection, or gift it to your closest person, friends or your kids on Cristsmas.We provide up-to-date products all around the world.</p>
+                        <button className='px-8 bg-blue-600 text-white py-4 font-bold rounded-full hover:bg-blue-700'>Contact Us</button>
+                    </div>
+                </div>
+            </section>
         </>
     )
 }
