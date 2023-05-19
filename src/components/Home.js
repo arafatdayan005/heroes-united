@@ -53,6 +53,127 @@ function Home() {
                     </div>
                 </div>
             </section>
+            {/* Our Collection Section*/}
+            <section className='py-20 bg-blue-500 bg-opacity-20'>
+                <div className="text-center">
+                    <h3 className='text-4xl font-bold tracking-tighter text-blue-600'>Our Collections</h3>
+                    <h1 className='w-[50%] inline-block text-5xl font-bold font-serif my-8'>Check Our Best Action Figures</h1>
+                </div>
+
+                <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 px-16'>
+                    <div className='flex flex-col justify-center space-y-8'>
+                        <div className='w-full flex justify-center'>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/1200px-Marvel_Logo.svg.png" className='h-12 w-20' alt="" />
+                        </div>
+                        <div className='h-32 xl:h-80 2xl:h-96'>
+                            <Carousel
+                                indicators={false}
+                                leftControl=" "
+                                rightControl=" "
+                                slideInterval={3000}>
+                                <img
+                                    src="https://cdn.popcultcha.com.au/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/h/a/hasf0121-marvel-hulk-vs-abomination-gamerverse-marvel-legends-6-inch-scale-action-figure-2-pack-popcultcha-01.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                                <img
+                                    src="https://i.pinimg.com/originals/8e/5e/d6/8e5ed6934c7612750d7d130ad8e82cc4.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                            </Carousel>
+                        </div>
+                        <div className='h-32 xl:h-80 2xl:h-96'>
+                            <Carousel
+                                indicators={false}
+                                leftControl=" "
+                                rightControl=" "
+                                slideInterval={4000}>
+                                <img
+                                    src="https://cdn.shopify.com/s/files/1/0614/9675/4394/products/product-image-1948073786-removebg-preview.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                                <img
+                                    src="https://i0.wp.com/www.actionfigureinsider.com/wpress/wp-content/uploads/2017/02/MARVEL-LEGENDS-SERIES-3.75-INCH-2-PACK-Figure-Assortment-GOTG-in-pkg.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                            </Carousel>
+                        </div>
+                    </div>
+                    <div className='flex flex-col justify-center space-y-8'>
+                        <div className='w-full flex justify-center'>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/DC_Comics_logo.svg" className='h-14 w-20' alt="" />
+                        </div>
+                        <div className='h-32 xl:h-80 2xl:h-96'>
+                            <Carousel
+                                indicators={false}
+                                leftControl=" "
+                                rightControl=" "
+                                slideInterval={3000}>
+                                <img
+                                    src="https://cdn.popcultcha.com.au/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/m/c/mcf15424-dc-comics-batman-dark-nights-metal-dc-multiverse-7-inch-action-figure-popcultcha-01.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                                <img
+                                    src="https://www.tapoutcollectables.com.au/wp-content/uploads/2021/03/mcf15086-01.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                            </Carousel>
+                        </div>
+                        <div className='h-32 xl:h-80 2xl:h-96'>
+                            <Carousel
+                                indicators={false}
+                                leftControl=" "
+                                rightControl=" "
+                                slideInterval={4000}>
+                                <img
+                                    src="https://cdn.shoplightspeed.com/shops/645219/files/47415854/1652x1652x2/mcfarlane-toys-dc-direct-black-adam-comics-superma.jpg"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                                <img
+                                    src="https://i.ebayimg.com/images/g/bwwAAOSwc89jn3zm/s-l500.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                            </Carousel>
+                        </div>
+                    </div>
+                    <div className='flex flex-col justify-center space-y-8'>
+                        <div className='w-full flex justify-center'>
+                            <img src="https://www.themoviedb.org/t/p/original/15cw5VeFfi7SAF7R2OTTpmNK5B5.png" className='h-12 w-20' alt="" />
+                        </div>
+                        <div className='h-32 xl:h-80 2xl:h-96'>
+                            <Carousel
+                                indicators={false}
+                                leftControl=" "
+                                rightControl=" "
+                                slideInterval={3000}>
+                                <img
+                                    src="https://cdn.popcultcha.com.au/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/t/h/the_boys_-_starlight_ultimate_7_scale_action_figure.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                                <img
+                                    src="https://cdn.popcultcha.com.au/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/f/u/fun48194-the-boys-a-train-pop-vinyl-figure-popcultcha-01.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                            </Carousel>
+                        </div>
+                        <div className='h-32 xl:h-80 2xl:h-96'>
+                            <Carousel
+                                indicators={false}
+                                leftControl=" "
+                                rightControl=" "
+                                slideInterval={4000}>
+                                <img
+                                    src="https://www.lojatsc.com.br/wp-content/uploads/2020/09/Funko-Pop-The-Boys-Homelander-978.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                                <img
+                                    src="https://bunker.com.mk/wp-content/uploads/fun48189-the-boys-queen-maeve-pop.png"
+                                    alt="..." className="h-32 lg:h-80"
+                                />
+                            </Carousel>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     )
 }
