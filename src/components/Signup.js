@@ -1,9 +1,45 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../providers/AuthProvider'
 
 function Signup() {
 
     const [show, setShow] = useState(false)
+
+    const { createUser, updateUser } = useContext(AuthContext);
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+
+        createUser(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage)
+                // ..
+            });
+
+        updateUser(name, photo)
+            .then((userCredential) => {
+                // Profile updated!
+                const user = userCredential.user;
+                console.log(user)
+            }).catch((error) => {
+                // An error occurred
+                // ...
+            });
+    }
 
     return (
         <section className='2xl:h-[90vh] relative'>
@@ -14,20 +50,20 @@ function Signup() {
                         <h2 className='text-center py-5 text-3xl text-red-500 font-extrabold'>Sign Up</h2>
                     </div>
 
-                    <form>
-                        <div class="relative">
-                            <input type="text" name="name" id="floating_outlined" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-red-500 appearance-none  focus:outline-none focus:ring-0 focus:border-red-500 peer mb-6" placeholder=" " required />
-                            <label for="floating_outlined" class="absolute text-md text-red-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-transparent px-2 peer-focus:px-2 peer-focus:text-red-500 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 peer-focus:bg-black">Enter Username</label>
+                    <form onSubmit={handleSignUp}>
+                        <div class="relative z-0">
+                            <input type="text" name="name" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-red-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer mb-6" placeholder=" " />
+                            <label for="floating_standard" class="absolute text-sm text-red-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Username</label>
                         </div>
 
-                        <div class="relative">
-                            <input type="email" name="email" id="floating_outlined" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-red-500 appearance-none  focus:outline-none focus:ring-0 focus:border-red-500 peer mb-6" placeholder=" " required />
-                            <label for="floating_outlined" class="absolute text-md text-red-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-transparent px-2 peer-focus:px-2 peer-focus:text-red-500 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 peer-focus:bg-black">Enter Email</label>
+                        <div class="relative z-0">
+                            <input type="email" name="email" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-red-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer mb-6" placeholder=" " required />
+                            <label for="floating_standard" class="absolute text-sm text-red-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Email</label>
                         </div>
 
-                        <div class="relative">
-                            <input type={show ? "text" : "password"} name="password" id="floating_outlined" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-red-500 appearance-none  focus:outline-none focus:ring-0 focus:border-red-500 peer" placeholder=" " required />
-                            <label for="floating_outlined" class="absolute text-md text-red-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-transparent px-2 peer-focus:px-2 peer-focus:text-red-500 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 peer-focus:bg-black">Password</label>
+                        <div class="relative z-0">
+                            <input type={show ? "text" : "password"} name="password" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-red-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer" placeholder=" " required />
+                            <label for="floating_standard" class="absolute text-sm text-red-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
                         </div>
 
                         <p className='mb-4 text-white underline cursor-pointer inline-block' onClick={() => setShow(!show)}>
@@ -39,9 +75,9 @@ function Signup() {
                             </small>
                         </p>
 
-                        <div class="relative">
-                            <input type="text" name="photo" id="floating_outlined" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-white bg-transparent rounded-lg border-1 border-red-500 appearance-none  focus:outline-none focus:ring-0 focus:border-red-500 peer" placeholder=" " required />
-                            <label for="floating_outlined" class="absolute text-md text-red-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-transparent px-2 peer-focus:px-2 peer-focus:text-red-500 peer-focus:dark:text-red-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1 peer-focus:bg-black">Enter Photo URL</label>
+                        <div class="relative z-0">
+                            <input type="text" name="photo" id="floating_standard" class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-red-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-600 peer" placeholder=" " required />
+                            <label for="floating_standard" class="absolute text-sm text-red-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-red-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Enter Photo URL</label>
                         </div>
 
                         <br />

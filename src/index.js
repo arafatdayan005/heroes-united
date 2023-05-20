@@ -9,6 +9,7 @@ import Signin from './components/Signin';
 import Signup from './components/Signup';
 import Blogs from './components/Blogs';
 import ErrorPage from './components/ErrorPage';
+import AuthProvider from './providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </>
 );
 

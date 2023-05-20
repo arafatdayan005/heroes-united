@@ -4,7 +4,6 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-console.log("env", process.env.REACT_APP_apiKey);
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
@@ -14,8 +13,6 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_messagingSenderId,
   appId: process.env.REACT_APP_appId,
 };
-
-console.log(firebaseConfig.apiKey, firebaseConfig.appId)
 
 
 // Initialize Firebase
