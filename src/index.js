@@ -10,6 +10,8 @@ import Signup from './components/Signup';
 import Blogs from './components/Blogs';
 import ErrorPage from './components/ErrorPage';
 import AuthProvider from './providers/AuthProvider';
+import Details from './components/Details';
+import PrivateRoute from './routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/details/:id',
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
       },
       {
         path: '/signin',
