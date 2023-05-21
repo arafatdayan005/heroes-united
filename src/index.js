@@ -13,6 +13,7 @@ import AuthProvider from './providers/AuthProvider';
 import Details from './components/Details';
 import PrivateRoute from './routes/PrivateRoute';
 import Alltoys from './components/Alltoys';
+import AddToy from './components/AddToy';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: '/alltoys',
         element: <Alltoys></Alltoys>
+      },
+      {
+        path: '/addtoy',
+        element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
       },
       {
         path: '/signin',
