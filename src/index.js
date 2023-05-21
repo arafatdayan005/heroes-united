@@ -12,6 +12,7 @@ import ErrorPage from './components/ErrorPage';
 import AuthProvider from './providers/AuthProvider';
 import Details from './components/Details';
 import PrivateRoute from './routes/PrivateRoute';
+import Alltoys from './components/Alltoys';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path: '/details/:id',
         element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+      },
+      {
+        path: '/alltoys',
+        element: <Alltoys></Alltoys>
       },
       {
         path: '/signin',
