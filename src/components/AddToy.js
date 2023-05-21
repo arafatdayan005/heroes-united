@@ -29,7 +29,7 @@ function AddToy() {
             category
         }
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://heroes-united-server-arafatdayan005.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

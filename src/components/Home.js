@@ -7,7 +7,7 @@ function Home() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://heroes-united-server-arafatdayan005.vercel.app/products')
             .then(res => res.json())
             .then(products => {
                 const result = products.filter(product => product.category == tab)

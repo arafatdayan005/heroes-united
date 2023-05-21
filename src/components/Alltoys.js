@@ -6,7 +6,7 @@ function Alltoys() {
     const [load, setLoad] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://heroes-united-server-arafatdayan005.vercel.app/products')
             .then(res => res.json())
             .then(product => {
                 setToys(product)
@@ -57,7 +57,7 @@ function Alltoys() {
                         </thead>
                         <tbody>
                             {
-                                toys.slice(0, 20).map((toy, i) => 
+                                toys.slice(0, 20).map((toy, i) =>
                                     <tr className="bg-white text-center border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <td className="w-4 p-4">
                                             <div className="flex ps-2 items-center">
