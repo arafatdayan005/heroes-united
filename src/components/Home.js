@@ -55,8 +55,8 @@ function Home() {
             {/* Our Collection Section*/}
             <section className='py-20 bg-blue-500 bg-opacity-20'>
                 <div className="text-center">
-                    <h3 className='text-4xl font-bold tracking-tighter text-blue-600'>Our Collections</h3>
-                    <h1 className='w-[50%] inline-block text-5xl font-bold font-serif my-8'>Check Our Best Action Figures</h1>
+                    <h3 data-aos="fade-up" className='text-4xl font-bold tracking-tighter text-blue-600'>Our Collections</h3>
+                    <h1 data-aos="fade-up" data-aos-duration="1000" className='w-[50%] inline-block text-5xl font-bold font-serif my-8'>Check Our Best Action Figures</h1>
                 </div>
 
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 px-16'>
@@ -176,8 +176,8 @@ function Home() {
             {/* Choose Hero Section*/}
             <section className='py-20 bg-gray-300 bg-opacity-20'>
                 <div className="text-center">
-                    <h3 className='text-4xl font-bold tracking-tighter text-blue-600'>Choose Hero</h3>
-                    <h1 className='w-[50%] inline-block text-5xl font-bold font-serif my-8'>Browse Heroes By Category</h1>
+                    <h3 data-aos="fade-up" className='text-4xl font-bold tracking-tighter text-blue-600'>Choose Hero</h3>
+                    <h1 data-aos="fade-up" data-aos-duration="1000" className='w-[50%] inline-block text-5xl font-bold font-serif my-8'>Browse Heroes By Category</h1>
                 </div>
                 <div className='flex justify-center'>
                     <button onClick={() => setTab("Marvel")} type="button" className={`w-24 text-gray-900 border border-gray-300 focus:outline-none ${tab == "Marvel" ? "z-10 text-white bg-red-500 focus:ring-red-600" : ""} hover:bg-red-600 hover:text-white focus:ring-4 font-medium rounded-lg rounded-b-none text-sm px-5 py-2.5`}>Marvel</button>
@@ -198,12 +198,12 @@ function Home() {
             {/* Special Deal Section */}
             <section className='py-20 bg-slate-950 text-white'>
                 <div className='text-center'>
-                    <h3 className='text-4xl font-bold tracking-tighter text-blue-600'>Special Deal</h3>
-                    <h1 className='w-[40%] inline-block text-5xl font-bold font-serif my-8'>Check Our All New Christmas Deals</h1>
+                    <h3 data-aos="fade-up" className='text-4xl font-bold tracking-tighter text-blue-600'>Special Deal</h3>
+                    <h1 data-aos="fade-up" data-aos-duration="1000" className='w-[40%] inline-block text-5xl font-bold font-serif my-8'>Check Our All New Christmas Deals</h1>
                 </div>
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
-                    <div className='flex justify-end'>
+                    <div data-aos="fade-down-right" className='flex justify-end'>
                         <img className='max-w-[70%] h-full rounded-xl' src="https://cdn.popcultcha.com.au/media/catalog/product/cache/207e23213cf636ccdef205098cf3c8a3/h/a/hasf3454-future-foundation-spider-man-_stealth-suit_-marvel-legends-6_-scale-action-figure-01.png" alt="" />
                     </div>
                     <div>
@@ -222,12 +222,12 @@ function Home() {
                             <button className='px-8 bg-red-600 text-white py-4 font-bold rounded-full hover:bg-red-700 mt-4'>Buy now</button>
                         </div>
                     </div>
-                    <img className='max-w-[70%] h-full rounded-xl' src="https://www.dragon-models.de/out/pictures/master/product/2/1-jpg-608f7d0dec32c.png" alt="" />
+                    <img data-aos="fade-down-left" className='max-w-[70%] h-full rounded-xl' src="https://www.dragon-models.de/out/pictures/master/product/2/1-jpg-608f7d0dec32c.png" alt="" />
                 </div>
             </section>
             {/* About Us Section */}
             <section className='grid grid-cols-1 lg:grid-cols-2 bg-gray-300 bg-opacity-25'>
-                <div className='bg-circle relative flex justify-center'>
+                <div data-aos="fade-down-right" className='bg-circle relative flex justify-center'>
                     <img className='absolute max-h-[120%] me-6 -top-8' src="https://scroar.net/wp-content/uploads/2021/10/IMG_2832-700x900.png" alt="" />
                 </div>
                 <div className='flex justify-center'>
