@@ -16,7 +16,7 @@ function Footer() {
                                     <p className='text-4xl font-extrabold lead leading-none'>United</p>
                                 </div>
                             </div>
-                            <p>There are many variations of passages of Lorem Ipsum , but the majority have suffered alteration in some form.</p>
+                            <p>Come visit our shop to meet & greet with comic nerds and avail exciting gifts and vouchers for your next purchase.</p>
                             <img src={icon} className='mt-4' alt="" />
                         </div>
                         <div className='col-span-1 text-white'>

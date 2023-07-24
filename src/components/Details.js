@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom'
 
 function Details() {
     const data = useLoaderData()
-    const { _id, name, image, price, ratings, quantity, description, seller, email } = data
+    const { name, image, price, quantity, description, seller, email } = data
 
     return (
         <>
@@ -18,7 +18,7 @@ function Details() {
                     <p className='text-yellow-400 font-bold text-3xl'><span className='text-green-700 font-semibold text-2xl tracking-tight'>Price:</span> {price} </p>
                     <div className='flex'>
                         <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br shadow-xl shadow-blue-500/50 font-medium rounded-full text-sm px-6 py-4 text-center mr-2 mt-4 lg:mt-16">Add to Cart</button>
-                        <button type="button" class="text-gray-900 bg-gradient-to-r from-yellow-200 via-yelloe-400 to-yellow-400 hover:bg-gradient-to-br shadow-xl shadow-yellow-500/50 font-medium rounded-full text-sm px-6 py-4 text-center mr-2 mt-4 lg:mt-16">Buy Now</button>
+                        <button type="button" className="text-gray-900 bg-gradient-to-r from-yellow-200 via-yelloe-400 to-yellow-400 hover:bg-gradient-to-br shadow-xl shadow-yellow-500/50 font-medium rounded-full text-sm px-6 py-4 text-center mr-2 mt-4 lg:mt-16">Buy Now</button>
                     </div>
                 </div>
             </div>
