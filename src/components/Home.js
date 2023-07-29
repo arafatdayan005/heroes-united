@@ -21,11 +21,11 @@ function Home() {
     return (
         <>
             {/* Banner Section */}
-            <section className="h-56 sm:h-64 md:h-96 2xl:h-[90vh] bg-black bg-auto">
+            <section className="h-56 sm:h-64 md:h-96 lg:h-[90vh] bg-black bg-auto">
                 <Carousel>
                     <div className="flex h-full items-center justify-center">
                         <img src={img1} className='h-[90vh] w-full' alt="" />
-                        <div className="h-full w-full absolute flex justify-center  bg-gradient-to-r from-[#000000c0] to-[#000000c0]">
+                        <div className="h-full w-full absolute flex justify-center bg-gradient-to-r from-[#000000c0] to-[#000000c0]">
                             <div className='h-full w-full flex flex-col justify-center items-center text-center'>
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Marvel_Logo.svg/1200px-Marvel_Logo.svg.png" className='h-28 ' alt="" />
                                 <p className='mt-8 sub-heading text-white text-5xl tracking-normal font-semibold'>All <span className='text-red-600 font-extrabold text-6xl tracking-tighter'>MARVEL</span> Toys And Action Figure <br /> Available Here</p>

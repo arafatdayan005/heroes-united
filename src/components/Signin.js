@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import ReCAPTCHA from "react-google-recaptcha";
 import Lottie from "lottie-react";
 import login from './../images/93385-login.json'
 import { AuthContext } from '../providers/AuthProvider'
 
 function Signin() {
     const [show, setShow] = useState(false)
+    const [verified, setVerified] = useState(false)
     const { loginUser, googleLogin, githubLogin } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
@@ -44,6 +46,10 @@ function Signin() {
             });
     }
 
+    const captchaValidate = (value) => {
+        setVerified(!verified);
+    }
+
     return (
         <section className="relative flex justify-center flex-wrap  lg:items-center">
             <div className="lg:ms-28 w-full px-4 py-8 sm:px-6 sm:py-16 lg:px-8 lg:py-16 lg:w-96">
@@ -72,8 +78,16 @@ function Signin() {
                     </p>
                     <br />
 
+                    <div className='flex justify-center mt-6'>
+                        <ReCAPTCHA
+                            sitekey="6LeyBFQnAAAAAGlMO5X1YCrD8KtNSdHfBnjJOZT-"
+                            onChange={captchaValidate}
+                        />
+                    </div>
+                    <br />
+
                     <div className='flex justify-center'>
-                        <button className='bg-blue-600 mx-auto text-white py-4 px-8 mt-6 font-bold rounded-full hover:bg-blue-700' type="submit">Sign in</button>
+                        <button className={`bg-blue-600 mx-auto text-white py-4 px-8 font-bold rounded-full ${verified ? 'hover:bg-blue-700' : 'cursor-not-allowed'}`} type="submit">Sign in</button>
                     </div>
 
                 </form>

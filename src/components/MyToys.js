@@ -174,7 +174,7 @@ function MyToys() {
                                             {
                                                 openModal &&
                                                 <Modal
-                                                className='bg-black backdrop-blur-sm bg-opacity-5'
+                                                className='bg-black bg-opacity-10 backdrop-blur-sm'
                                                     show={openModal}
                                                     onClose={() => {
                                                         setOpenModal(!openModal)
