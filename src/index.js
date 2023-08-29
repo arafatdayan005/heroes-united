@@ -14,6 +14,8 @@ import PrivateRoute from './routes/PrivateRoute';
 import Alltoys from './components/Alltoys';
 import AddToy from './components/AddToy';
 import MyToys from './components/MyToys';
+import Dashboard from './components/Dashboard';
+import ManageUsers from './components/ManageUsers';
 
 const router = createBrowserRouter([
   {
@@ -51,7 +53,17 @@ const router = createBrowserRouter([
         element: <Signup></Signup>
       },
     ]
-  }
+  },
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [   
+      {
+        path: '/dashboard/admin/users',
+        element: <ManageUsers></ManageUsers>
+      },
+    ]
+  },
 ])
 
 

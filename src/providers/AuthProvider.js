@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
@@ -32,11 +32,28 @@ function AuthProvider({ children }) {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 
             setUser(currentUser)
+            // if (currentUser?.email) {
+            //     fetch('https://heroes-united-server-arafatdayan005.vercel.app/jwt', {
+            //         method: 'POST',
+            //         headers: {
+            //             'content-type': 'application/json'
+            //         },
+            //         body: JSON.stringify({ email: currentUser.email })
+            //     })
+            //         .then(res => res.json())
+            //         .then(d => {
+            //             localStorage.setItem('access-token', d.token)
+            //             setLoader(false)
+            //         })
+            // } else {
+            //     localStorage.removeItem('access-token')
+            //     setLoader(false)
+            // }
             setLoader(false)
             if (currentUser) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
-                const uid = currentUser.uid;
+                //const uid = currentUser.uid;
             } else {
                 // User is signed out
             }
@@ -51,6 +68,14 @@ function AuthProvider({ children }) {
         return updateProfile(auth.currentUser, { displayName: name, photoURL: photo })
     }
 
+    const validateUser = (user) => {
+        sendEmailVerification(user)
+            .then(result => {
+                console.log(result)
+                alert('Please Verify your email')
+            })
+    }
+
     const logOut = () => {
         return signOut(auth)
     }
@@ -60,6 +85,7 @@ function AuthProvider({ children }) {
         googleLogin,
         githubLogin,
         updateUser,
+        validateUser,
         signOut,
         logOut,
         user,

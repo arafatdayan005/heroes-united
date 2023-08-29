@@ -4,7 +4,7 @@ import { AuthContext } from '../providers/AuthProvider'
 
 function Signup() {
     const [show, setShow] = useState(false)
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser, validateUser, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSignUp = (e) => {
@@ -17,10 +17,61 @@ function Signup() {
         const photo = form.photo.value;
 
         createUser(email, password)
-            .then(() => {
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user)
+                validateUser(user)
+                if (user.emailVerified) {
+                    updateUser(name, photo)
+                        .then(() => {
+                            let today = new Date()
+                            const currentUser = {
+                                email: user.email,
+                                name: user.displayName,
+                                photo: user.photoURL,
+                                time: today
+                            }
+
+                            fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'content-type': 'application/json',
+                                },
+                                body: JSON.stringify(currentUser),
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.upsertedCount === 1) {
+                                        const setRole = {
+                                            role: "user"
+                                        }
+
+                                        fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`, {
+                                            method: 'PUT',
+                                            headers: {
+                                                'content-type': 'application/json',
+                                            },
+                                            body: JSON.stringify(setRole),
+                                        })
+                                            .then(res => res.json())
+                                            .then(data => console.log(data))
+                                    }
+                                })
+                            //navigate('/')
+                        }).catch((error) => {
+                            // An error occurred
+                            // ...
+                        });
+                }
+                else {
+                    logOut()
+                        .then(() => {
+                            navigate('/signin')
+                        })
+                }
                 updateUser(name, photo)
-                    .then((userCredential) => {
-                        navigate('/')
+                    .then(() => {
+                        //navigate('/')
                     }).catch((error) => {
                         // An error occurred
                         // ...

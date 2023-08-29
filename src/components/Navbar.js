@@ -71,7 +71,7 @@ function Navbar() {
                                 </div>
                                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
                                     <li>
-                                        <Link className="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
+                                        <Link to={'/dashboard'} className="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
                                     </li>
                                     <li>
                                         <Link className="block px-4 py-2 hover:bg-blue-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</Link>

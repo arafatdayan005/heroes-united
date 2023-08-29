@@ -8,7 +8,7 @@ import { AuthContext } from '../providers/AuthProvider'
 function Signin() {
     const [show, setShow] = useState(false)
     const [verified, setVerified] = useState(false)
-    const { loginUser, googleLogin, githubLogin } = useContext(AuthContext)
+    const { loginUser, googleLogin, githubLogin, logOut } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -23,9 +23,63 @@ function Signin() {
 
         loginUser(email, password)
             .then((userCredential) => {
-                navigate(from, { replace: true })
+                const user = userCredential.user
+                let today = new Date()
+                const currentUser = {
+                    email: user.email,
+                    name: user.displayName,
+                    photo: user.photoURL,
+                    time: today
+                }
+
+                fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json',
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.upsertedCount === 1) {
+                            const setRole = {
+                                role: "user"
+                            }
+
+                            fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'content-type': 'application/json',
+                                },
+                                body: JSON.stringify(setRole),
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    //navigate(from, { replace: true })
+                                    navigate('/')
+                                })
+                            
+                        }
+                    })
+                    fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`)
+                                .then(res => res.json())
+                                .then(data => {
+                                    console.log(data)
+                                    if (data.role === "blocked") {
+                                        logOut()
+                                            .then(() => {
+                                                alert("Blocked due suspecius behaviour")
+                                                return
+                                            }).catch((error) => {
+                                                // An error happened.
+                                            });
+                                    }
+                                    
+                                })
+
             })
             .catch((error) => {
+                alert(error)
             });
 
     }
@@ -33,7 +87,61 @@ function Signin() {
     const handleGoogleLogin = () => {
         googleLogin()
             .then((result) => {
-                navigate("/")
+                const user = result.user
+                fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.role === "blocked") {
+                            logOut()
+                                .then(() => {
+                                    alert("Blocked due suspecius behaviour")
+                                    return
+                                }).catch((error) => {
+                                    // An error happened.
+                                });
+
+                        }
+                        else {
+                            let today = new Date()
+                            const currentUser = {
+                                email: user.email,
+                                name: user.displayName,
+                                photo: user.photoURL,
+                                time: today
+                            }
+
+                            fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'content-type': 'application/json',
+                                },
+                                body: JSON.stringify(currentUser),
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.upsertedCount === 1) {
+                                        const setRole = {
+                                            role: "user"
+                                        }
+
+                                        fetch(`https://heroes-united-server-arafatdayan005.vercel.app/users/${user?.email}`, {
+                                            method: 'PUT',
+                                            headers: {
+                                                'content-type': 'application/json',
+                                            },
+                                            body: JSON.stringify(setRole),
+                                        })
+                                            .then(res => res.json())
+                                            .then(data => {
+                                                console.log(data)
+                                                navigate("/")
+                                            })
+                                    }
+                                })
+                        }
+                    })
+
             }).catch((error) => {
 
             });
